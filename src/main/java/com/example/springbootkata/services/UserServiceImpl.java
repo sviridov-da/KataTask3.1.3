@@ -12,8 +12,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class UserServiceImpl implements UserService{
     private UserDao dao;
@@ -21,6 +25,16 @@ public class UserServiceImpl implements UserService{
     public UserServiceImpl(UserDao dao, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.dao = dao;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+    @PostConstruct
+    public void initAdmin(){
+//        User admin = new User();
+//        admin.setEmail("admin@admin.ru");
+//        admin.setPassword(bCryptPasswordEncoder.encode("admin"));
+//        Set<Role> roleSet = new HashSet<>();
+//        Role adminRole = new Role()
+//        dao.addUser(admin);
     }
 
     @Override
